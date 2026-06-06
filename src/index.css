@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-netflix-bg: #0F0F10;
+  --color-netflix-card: #18181B;
+  --color-wine-red: #9E1B32;
+  --color-wine-red-hover: #7F1426;
+  --color-whatsapp-green: #25D366;
+  --color-whatsapp-green-hover: #1EBD55;
+  --color-off-white: #C9C9C9;
+}
+
+/* Base custom styles to enhance the premium Netflix experience */
+body {
+  background-color: #0F0F10;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Smooth custom horizontal scrolling mimicking Netflix */
+.netflix-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.netflix-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.netflix-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+.netflix-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(158, 27, 50, 0.8);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Glowing decorative effects used sparingly for luxury catalog */
+.wine-glow {
+  box-shadow: 0 0 30px rgba(158, 27, 50, 0.4);
+}
+
+.green-glow {
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.card-hover-scale {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-scale:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(158, 27, 50, 0.2);
+}

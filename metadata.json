@@ -1,0 +1,6 @@
+{
+  "name": "Catálogo de Presentes Personalizados",
+  "description": "Um catálogo elegante estilo Netflix para escolher os melhores presentes personalizados para o Dia dos Namorados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
