@@ -129,16 +129,23 @@ export const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ products, on
 
         {/* Content Box OUTSIDE of the Image */}
         <div className="pt-4 pb-2 px-1 text-left">
-          {/* Title */}
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black tracking-tight text-white leading-tight">
-            {currentProduct.title}
-          </h3>
+          {/* Title and Price Tag */}
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black tracking-tight text-white leading-tight">
+              {currentProduct.title}
+            </h3>
+            {currentProduct.price && (
+              <span className="text-lg sm:text-xl font-mono font-black text-green-400 bg-green-500/10 border border-green-500/20 px-3 py-1 rounded-xl shadow-sm">
+                R$ {Number(currentProduct.price).toFixed(2).replace('.', ',')}
+              </span>
+            )}
+          </div>
 
           {/* Call to action & indicator dots */}
-          <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <button className="w-fit bg-white hover:bg-[#FF2D55] text-black hover:text-white font-display font-black uppercase text-xs tracking-wider px-6 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-1.5 focus:outline-none cursor-pointer select-none border border-white/10 hover:border-transparent active:scale-95">
-              <Play className="w-3 h-3 fill-current" />
-              Personalizar Presente
+          <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/5 mt-3">
+            <button className="w-full sm:w-auto bg-whatsapp-green hover:bg-whatsapp-green-hover text-white font-display font-black uppercase text-xs tracking-wider px-6 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:outline-none cursor-pointer select-none border border-emerald-400/20 hover:scale-102 active:scale-95 green-glow">
+              <Play className="w-3.5 h-3.5 fill-current text-white" />
+              🎁 ESCOLHER ESTE PRESENTE SURPRESA
             </button>
 
             {/* Slide dots indicators */}

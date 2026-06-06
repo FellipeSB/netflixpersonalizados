@@ -455,10 +455,10 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
 ];
 
 export const GUARANTEES_DATA = [
-  { id: 'g1', title: 'Personalização exclusiva', desc: 'Sua foto e iniciais editadas por designers profissionais', iconName: 'Compass' },
-  { id: 'g2', title: 'Produção com sua foto', desc: 'Impressão térmica de altíssima definição que nunca desbota', iconName: 'Camera' },
-  { id: 'g3', title: 'Embalagem especial', desc: 'Todos os presentes já chegam embalados para presente e cheirosos', iconName: 'Gift' },
-  { id: 'g4', title: 'Entrega rápida', desc: 'Envio prioritário rastreado para chegar perfeito antes da data', iconName: 'Truck' }
+  { id: 'g1', title: 'Designers Profissionais', desc: 'Sua foto e iniciais passam por edição e correção gratuita de brilho e nitidez para ficarem perfeitas.', iconName: 'Compass' },
+  { id: 'g2', title: 'Feito em Guaíba', desc: 'Produção local atenciosa com cerâmica importada de altíssimo brilho que resiste ao micro-ondas.', iconName: 'Camera' },
+  { id: 'g3', title: 'Prontinho para Presente', desc: 'Todos os pedidos são cuidadosamente embalados de forma romântica e cheirosa, prontos para encantar.', iconName: 'Gift' },
+  { id: 'g4', title: 'Entrega Guaíba & Região', desc: 'Opção de entrega expressa no mesmo dia ou retirada em horário agendado de forma super segura.', iconName: 'Truck' }
 ];
 
 export const URGENCY_DATA = {
