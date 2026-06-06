@@ -10,12 +10,11 @@ import { GuaranteeSection } from './components/GuaranteeSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { FooterCTA } from './components/FooterCTA';
 import { FeaturedCarousel } from './components/FeaturedCarousel';
-import { TudumIntro } from './components/TudumIntro';
-import { SwipeIndicator } from './components/SwipeIndicator';
+import { HowItWorks } from './components/HowItWorks';
 
 // Utility to populate and load default sections with prices and options
 const getInitialSections = (): Section[] => {
-  const saved = localStorage.getItem('catalog_sections_db_v11');
+  const saved = localStorage.getItem('catalog_sections_db_v12');
   if (saved) {
     try {
       let parsed = JSON.parse(saved) as Section[];
@@ -72,7 +71,7 @@ const getInitialSections = (): Section[] => {
       });
 
       if (migrated) {
-        localStorage.setItem('catalog_sections_db_v11', JSON.stringify(parsed));
+        localStorage.setItem('catalog_sections_db_v12', JSON.stringify(parsed));
       }
 
       return parsed;
@@ -143,7 +142,7 @@ const getInitialSections = (): Section[] => {
     };
   });
 
-  localStorage.setItem('catalog_sections_db_v11', JSON.stringify(augmented));
+  localStorage.setItem('catalog_sections_db_v12', JSON.stringify(augmented));
   return augmented;
 };
 
@@ -288,9 +287,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-netflix-bg text-white relative flex flex-col font-sans select-none">
-      {/* 🎵 Netflix Brand Intro with physical Synthesized "Tudum" */}
-      <TudumIntro storeName={storeName} onAvatarSelect={handleAvatarSelect} />
-
       {/* ⚠️ Sticky Limited Edition Bar */}
       <UrgencyBanner />
 
@@ -301,7 +297,10 @@ export default function App() {
       />
 
       {/* 🎬 Big Visual Landing Frame */}
-      <Hero storeName={storeName} onCtaClick={handleScrollToCatalog} selectedAvatar={selectedAvatar} />
+      <Hero storeName={storeName} onCtaClick={handleScrollToCatalog} selectedAvatar={selectedAvatar} phone={phone} />
+
+      {/* 🛠️ Passo a passo "Como funciona" */}
+      <HowItWorks />
 
       {/* 📂 Netflix Category Carousels */}
       <main id="catalogo" className="bg-netflix-bg relative z-10 pb-8 scroll-mt-6">
@@ -390,9 +389,6 @@ export default function App() {
           }}
         />
       )}
-
-      {/* 👆 Animated Swipe/Scroll Gesture Reminder Overlay */}
-      <SwipeIndicator isVisible={showSwipeIndicator} />
     </div>
   );
 }

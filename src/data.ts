@@ -185,9 +185,9 @@ export const SECTIONS_DATA: Section[] = [
     products: [
       {
         id: "caneca-spotify-1",
-        title: "Caneca Spotify Amor Infinito",
+        title: "Caneca Spotify",
         sectionId: "caneca-spotify",
-        subtitle: "A trilha sonora do seu amor",
+        subtitle: "A música que marcou a história de vocês",
         tagline: "Aponte a câmera do celular no app Spotify para tocar sua música.",
         images: ["https://i.ibb.co/0yKG8SwM/S1.webp"],
         description: "Inovação e afeto juntos! Colocamos a sua melhor foto com o código tocável do Spotify da música de vocês. Abra o aplicativo, aponte a câmera e ouça a música na hora!",
@@ -201,9 +201,9 @@ export const SECTIONS_DATA: Section[] = [
       },
       {
         id: "caneca-calendario",
-        title: "Caneca Calendário Nosso Dia",
+        title: "Caneca Calendário",
         sectionId: "caneca-spotify",
-        subtitle: "O dia em que nosso mundo se cruzou",
+        subtitle: "Reviva todos os dias aquela data especial",
         tagline: "Marque a data mais importante da história de vocês.",
         images: ["https://i.ibb.co/gMjVGRJj/C.webp"],
         description: "Uma caneca de valor sentimental inestimável. Um lindo calendário para fixar aquela data memorável com um coraçãozinho de carinho e estampar a foto mais fofa de vocês.",
@@ -217,12 +217,12 @@ export const SECTIONS_DATA: Section[] = [
       },
       {
         id: "caneca-spotify-2",
-        title: "Caneca Spotify Nosso Ritmo",
+        title: "Caneca Spotify Play",
         sectionId: "caneca-spotify",
-        subtitle: "Nosso ritmo e melodia particular",
+        subtitle: "A batida perfeita do amor de vocês",
         tagline: "Um design moderno e interativo com a trilha de vocês.",
         images: ["https://i.ibb.co/v4nXMwYW/S2.webp"],
-        description: "Sua foto emoldurada como capa de single no Spotify, completa com o player de música e seu código escaneável correspondente.",
+        description: "Sua foto emoldurada como capa de single no Spotify, completa with o player de mestre and seu código escaneável correspondente.",
         features: ["Código Spotify ativo e testado antes do envio", "Personalizada com nomes e foto de casal", "Resistente a micro-ondas com brilho estendido", "Escolha a embalagem ideal no fechamento do pedido"],
         badge: "Com Foto",
         price: 38.90,
@@ -241,9 +241,9 @@ export const SECTIONS_DATA: Section[] = [
     products: [
       {
         id: "azulejo-foto-1",
-        title: "Azulejo Amor de Janeiro a Janeiro",
+        title: "Azulejo com Foto",
         sectionId: "azulejos",
-        subtitle: "Sua lembrança em cerâmica legítima",
+        subtitle: "Transforme uma lembrança em decoração",
         tagline: "Lindo azulejo personalizado com a sua foto favorita.",
         images: ["https://i.ibb.co/zh8X9rR2/a1.webp"],
         description: "Um lindo azulejo personalizado com a foto do casal. Perfeito para registrar aquele momento inesquecível e decorar o ambiente com carinho.",
@@ -455,7 +455,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
 ];
 
 export const GUARANTEES_DATA = [
-  { id: 'g1', title: 'Designers Profissionais', desc: 'Sua foto e iniciais passam por edição e correção gratuita de brilho e nitidez para ficarem perfeitas.', iconName: 'Compass' },
+  { id: 'g1', title: 'Designers Profissionais', desc: 'Sua foto e iniciais passam por edição e correção profissional de brilho e nitidez para ficarem perfeitas nas fotos.', iconName: 'Compass' },
   { id: 'g2', title: 'Feito em Guaíba', desc: 'Produção local atenciosa com cerâmica importada de altíssimo brilho que resiste ao micro-ondas.', iconName: 'Camera' },
   { id: 'g3', title: 'Prontinho para Presente', desc: 'Todos os pedidos são cuidadosamente embalados de forma romântica e cheirosa, prontos para encantar.', iconName: 'Gift' },
   { id: 'g4', title: 'Entrega Guaíba & Região', desc: 'Opção de entrega expressa no mesmo dia ou retirada em horário agendado de forma super segura.', iconName: 'Truck' }

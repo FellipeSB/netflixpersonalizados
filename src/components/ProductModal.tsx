@@ -1226,7 +1226,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                               A foto para personalizar este presente será enviada diretamente pelo WhatsApp de forma super prática após finalizar seu pedido no botão abaixo!
                             </p>
                             <p className="text-xs text-zinc-400 mt-1">
-                              💡 Sem estresse de uploads lentos. Nosso designer a retocará gratuitamente.
+                              💡 Sem estresse de uploads lentos. Nosso designer fará o retoque profissional da imagem.
                             </p>
                           </div>
                         </div>
@@ -1340,7 +1340,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-gradient-to-r from-[#FF2D55] to-[#E02447] hover:brightness-110 text-white font-black py-5 rounded-2xl shadow-[0_4px_20px_rgba(255,45,85,0.45)] transition-all flex flex-col items-center justify-center gap-1 cursor-pointer select-none focus:outline-none text-base sm:text-lg tracking-wide border border-white/20"
                     >
                       <div className="flex items-center gap-2 font-display font-black">
-                        <span>PROSSEGUIR COM MEU PRESENTE ➔</span>
+                        <span>RECEBER MINHA PRÉVIA DIGITAL ➔</span>
                         <ArrowRight className="w-5 h-5" />
                       </div>
                       <span className="text-xs sm:text-sm text-white/90 font-semibold text-center">
@@ -1404,7 +1404,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                   className="bg-gradient-to-r from-[#FF2D55] to-[#E02447] hover:brightness-110 active:scale-[0.99] text-white font-black py-3.5 px-8 rounded-full shadow-[0_12px_25px_rgba(255,45,85,0.45)] border border-white/25 flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider text-sm font-sans"
                 >
                   <Heart className="w-4 h-4 fill-white animate-pulse" />
-                  <span>Quero este</span>
+                  <span>Quero Surpreender</span>
                 </button>
               </motion.div>
             )}
