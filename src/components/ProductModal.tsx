@@ -1142,6 +1142,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                             className="w-full bg-black/55 border border-white/20 focus:border-[#FF2D55] focus:ring-2 focus:ring-[#FF2D55]/30 rounded-xl px-4 py-3 text-base text-white placeholder-zinc-500 font-bold transition duration-300 outline-none"
                             id="names-custom-input"
                           />
+                          <p className="text-[11px] text-zinc-300 mt-2 font-medium flex items-center gap-1">
+                            🔒 Pode ser alterado ou ajustado depois pelo WhatsApp se você precisar!
+                          </p>
                         </div>
                       )}
 
@@ -1180,6 +1183,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                             className="w-full bg-black/55 border border-white/20 focus:border-green-400 focus:ring-2 focus:ring-green-400/30 rounded-xl px-4 py-3 text-base text-white placeholder-zinc-500 font-bold transition duration-300 outline-none"
                             id="spotify-custom-input"
                           />
+                          <p className="text-[11px] text-zinc-300 mt-2 font-medium flex items-center gap-1">
+                            🎵 Geramos o código de leitura exato e testamos no player antes de produzir.
+                          </p>
                         </div>
                       )}
 
@@ -1203,18 +1209,24 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                             className="w-full bg-black/55 border border-white/20 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/30 rounded-xl px-4 py-3 text-base text-white placeholder-zinc-500 font-bold transition duration-300 outline-none"
                             id="date-custom-input"
                           />
+                          <p className="text-[11px] text-zinc-300 mt-2 font-medium flex items-center gap-1">
+                            📅 Nossa equipe monta o calendário original daquele mês correspondente de forma magnífica.
+                          </p>
                         </div>
                       )}
 
                       {/* Photo Upload Info Box */}
                       {product.hasPhotoUpload !== false && (
                         <div className="bg-[#FF2D55]/10 border border-[#FF2D55]/20 rounded-2xl p-4 flex gap-3 mt-4 items-start shadow-sm">
-                          <div className="w-10 h-10 rounded-full bg-[#FF2D55]/20 flex items-center justify-center shrink-0 text-xl border border-[#FF2D55]/30">
+                          <div className="w-10 h-10 rounded-full bg-[#FF2D55]/20 flex items-center justify-center shrink-0 text-xl border border-[#FF2D55]/30 animate-pulse">
                             📸
                           </div>
                           <div>
                             <p className="text-sm font-medium text-zinc-100 leading-normal">
-                              A foto para personalizar este presente será enviada diretamente pelo WhatsApp após finalizar seu pedido no botão abaixo!
+                              A foto para personalizar este presente será enviada diretamente pelo WhatsApp de forma super prática após finalizar seu pedido no botão abaixo!
+                            </p>
+                            <p className="text-xs text-zinc-400 mt-1">
+                              💡 Sem estresse de uploads lentos. Nosso designer a retocará gratuitamente.
                             </p>
                           </div>
                         </div>
@@ -1247,14 +1259,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                         >
                           <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 512l141.6-37.2c32.7 18 69.4 27.5 107.1 27.5 122.4 0 222-99.6 222-222 0-59.3-23.1-115.1-65-157.1zM223.9 474c-33.1 0-65.7-8.9-94.1-25.7l-6.7-4-83.9 22 22.4-81.8-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
                         </svg>
-                        <span>{deliveryType === null ? 'Escolha Como Receber Acima' : (isDeliveryIncomplete ? 'Selecione seu Bairro no Menu' : 'ENVIAR PEDIDO PARA O WHATSAPP')}</span>
+                        <span>{deliveryType === null ? 'ESCOLHA COMO RECEBER ACIMA' : (isDeliveryIncomplete ? 'SELECIONE O SEU BAIRRO' : 'GARANTIR MINHA ENCOMENDA ➔')}</span>
                       </div>
                       <span className="text-xs sm:text-sm text-white/90 font-semibold font-sans text-center">
                         {deliveryType === null 
-                          ? '👆 Selecione Entrega ou Retirada acima para liberar seu pedido' 
+                          ? '👆 Escolha se prefere receber em Guaíba ou fazer retirada grátis' 
                           : (isDeliveryIncomplete 
-                            ? '👆 Escolha seu bairro no menu acima para calcular o valor de entrega' 
-                            : '👉 Clique para fechar seu pedido e combinar a foto diretamente no WhatsApp!')}
+                            ? '👆 Escolha o seu bairro para calcularmos o valor exato' 
+                            : '👉 Clique para fechar seu pedido com o designer e enviar suas fotos!')}
                       </span>
                     </motion.button>
 
@@ -1263,7 +1275,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-white/5 hover:bg-white/10 active:bg-white/15 border border-white/10 text-zinc-300 hover:text-white font-extrabold py-4 rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer select-none focus:outline-none text-xs sm:text-sm uppercase tracking-wider"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      Voltar para o Passo Anterior
+                      Voltar e Ajustar Presente
                     </button>
                   </div>
                 ) : (isAzulejo && step === 2) ? (
@@ -1276,11 +1288,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-gradient-to-r from-[#FF2D55] to-[#E02447] hover:brightness-110 text-white font-black py-5 rounded-2xl shadow-[0_4px_20px_rgba(255,45,85,0.45)] transition-all flex flex-col items-center justify-center gap-1 cursor-pointer select-none focus:outline-none text-base sm:text-lg tracking-wide uppercase border border-white/20"
                     >
                       <div className="flex items-center gap-2 font-display font-black">
-                        <span>AVANÇAR PARA A ENTREGA</span>
+                        <span>DEFINIR LOCAL DE ENTREGA ➔</span>
                         <ArrowRight className="w-5 h-5" />
                       </div>
                       <span className="text-xs sm:text-sm text-white/95 font-semibold">
-                        👉 Clique para preencher o local de entrega ou retirada nos próximos passos
+                        👉 Toque para preencher se deseja receber ou retirar em Guaíba no próximo passo
                       </span>
                     </motion.button>
 
@@ -1289,7 +1301,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-white/5 hover:bg-white/10 active:bg-white/15 border border-white/10 text-zinc-300 hover:text-white font-extrabold py-4 rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer select-none focus:outline-none text-xs sm:text-sm uppercase tracking-wider"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      Voltar para o Passo Anterior (Nomes e Personalização)
+                      Voltar e Ajustar Arte (Nomes e Ícones)
                     </button>
                   </div>
                 ) : (showPackaging && step === 2) ? (
@@ -1302,11 +1314,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-gradient-to-r from-[#FF2D55] to-[#E02447] hover:brightness-110 text-white font-black py-5 rounded-2xl shadow-[0_4px_20px_rgba(255,45,85,0.45)] transition-all flex flex-col items-center justify-center gap-1 cursor-pointer select-none focus:outline-none text-base sm:text-lg tracking-wide uppercase border border-white/20"
                     >
                       <div className="flex items-center gap-2 font-display font-black">
-                        <span>AVANÇAR PARA A ENTREGA</span>
+                        <span>DEFINIR LOCAL DE ENTREGA ➔</span>
                         <ArrowRight className="w-5 h-5" />
                       </div>
                       <span className="text-xs sm:text-sm text-white/95 font-semibold">
-                        👉 Clique para preencher o local de entrega ou retirada nos próximos passos
+                        👉 Toque para preencher se deseja receber ou retirar em Guaíba no próximo passo
                       </span>
                     </motion.button>
 
@@ -1315,7 +1327,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-white/5 hover:bg-white/10 active:bg-white/15 border border-white/10 text-zinc-300 hover:text-white font-extrabold py-4 rounded-2xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer select-none focus:outline-none text-xs sm:text-sm uppercase tracking-wider"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      Voltar para o Passo Anterior (Nomes e Personalização)
+                      Voltar e Ajustar Arte (Nomes e Ícones)
                     </button>
                   </div>
                 ) : (
@@ -1328,18 +1340,18 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, ph
                       className="w-full bg-gradient-to-r from-[#FF2D55] to-[#E02447] hover:brightness-110 text-white font-black py-5 rounded-2xl shadow-[0_4px_20px_rgba(255,45,85,0.45)] transition-all flex flex-col items-center justify-center gap-1 cursor-pointer select-none focus:outline-none text-base sm:text-lg tracking-wide border border-white/20"
                     >
                       <div className="flex items-center gap-2 font-display font-black">
-                        <span>AVANÇAR PARA O PRÓXIMO PASSO</span>
+                        <span>PROSSEGUIR COM MEU PRESENTE ➔</span>
                         <ArrowRight className="w-5 h-5" />
                       </div>
-                      <span className="text-xs sm:text-sm text-white/90 font-semibold">
+                      <span className="text-xs sm:text-sm text-white/90 font-semibold text-center">
                         {showPackaging 
-                          ? '👉 Toque para escolher a Embalagem de Presente ou Cesta' 
-                          : '👉 Toque para evoluir o presente para uma Linha Cesta'}
+                          ? '👉 Próximo passo: escolher a Caixa Embalagem de Presente' 
+                          : '👉 Próximo passo: evoluir este presente para uma linda Cesta de Café'}
                       </span>
                     </motion.button>
                     <span className="text-sm text-zinc-300 text-center block leading-relaxed font-semibold">
                       {showPackaging 
-                        ? "Clique no botão acima para escolher a embalagem ou cesta de Dia dos Namorados ideal no próximo passo."
+                        ? "Clique no botão acima para escolher a embalagem ideal do Dia dos Namorados no próximo passo."
                         : "Clique no botão acima para presentear seu amor de forma completa com um super combo."}
                     </span>
                   </div>

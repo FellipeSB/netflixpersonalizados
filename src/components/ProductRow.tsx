@@ -65,33 +65,38 @@ export const ProductRow: React.FC<ProductRowProps> = ({ title, subtitle, product
           className="flex gap-4 overflow-x-auto overflow-y-hidden pl-4 sm:pl-8 md:pl-16 pr-12 sm:pr-24 py-3 scroll-smooth no-scrollbar netflix-scrollbar"
         >
           {products.map((product) => {
-            const hasBadge = !!product.badge;
+            const displayBadge = product.badge || (
+              product.id.includes('spotify') ? 'Trilha do Amor 🎵' :
+              product.id.includes('calendario') ? 'Recordação Única 📅' :
+              product.id.includes('inicial') ? 'Exclusivo ✨' :
+              product.id.includes('cesta') ? 'Surpresa Completa 💝' :
+              'Favorito de Namorados ❤️'
+            );
+
             return (
               <div
                 key={product.id}
                 onClick={() => onProductClick(product)}
-                className="flex-shrink-0 w-[60vw] sm:w-[38vw] md:w-[26vw] lg:w-[18vw] flex flex-col gap-2 select-none group/card cursor-pointer transition-all duration-300 hover:scale-[1.03]"
+                className="flex-shrink-0 w-[64vw] sm:w-[42vw] md:w-[28vw] lg:w-[19vw] flex flex-col gap-2 select-none group/card cursor-pointer transition-all duration-300 hover:scale-[1.04]"
               >
                 {/* 1x1 Image Wrapper */}
-                <div className="w-full aspect-square relative rounded-xl overflow-hidden bg-netflix-card border border-white/5 shadow-md">
+                <div className="w-full aspect-square relative rounded-2xl overflow-hidden bg-netflix-card border border-white/5 shadow-lg transition duration-300 group-hover/card:border-wine-red/40 group-hover/card:shadow-[0_0_15px_rgba(158,27,50,0.15)]">
                   {/* Hero Product Image */}
                   <img
                     src={product.images[0]}
                     alt={product.title}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover/card:scale-105"
                     referrerPolicy="no-referrer"
                     loading="lazy"
                   />
 
                   {/* Badges and details */}
-                  <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
-                    {hasBadge && (
-                      <span className="bg-wine-red text-white text-[9px] font-mono font-extrabold uppercase tracking-widest px-2 py-0.5 rounded shadow-md border border-wine-red-hover">
-                        {product.badge}
-                      </span>
-                    )}
+                  <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10 select-none">
+                    <span className="bg-wine-red text-white text-[9px] font-mono font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shadow-lg border border-wine-red-hover animate-pulse">
+                      {displayBadge}
+                    </span>
                     {product.hasMusicSpotify && (
-                      <span className="bg-green-500/95 text-white text-[8px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded shadow-sm w-fit">
+                      <span className="bg-[#1DB954] text-white text-[8px] font-mono font-black tracking-widest px-2 py-0.5 rounded shadow-md w-fit">
                         🎵 SPOTIFY
                       </span>
                     )}
@@ -99,15 +104,21 @@ export const ProductRow: React.FC<ProductRowProps> = ({ title, subtitle, product
                 </div>
 
                 {/* Caption / Information - gracefully placed underneath the image to prevent overlapping */}
-                <div className="text-center w-full px-1">
-                  <h3 className="text-sm sm:text-base font-display font-black text-white/95 group-hover/card:text-white leading-snug line-clamp-1 transition-colors text-center">
+                <div className="text-left w-full px-1">
+                  <h3 className="text-sm sm:text-base font-display font-extrabold text-white/95 group-hover/card:text-white leading-snug line-clamp-1 transition-colors">
                     {product.title}
                   </h3>
                   
-                  {/* Center-aligned CTA footer with no price */}
-                  <div className="flex items-center justify-center mt-1.5 md:mt-2 border-t border-white/5 pt-1.5">
-                    <span className="text-xs sm:text-sm text-green-400 font-sans font-bold flex items-center justify-center gap-1 opacity-90 group-hover/card:opacity-100 transition-opacity">
-                      <Play className="w-3 h-3 fill-green-400 text-green-400 inline" /> Clique aqui para ver detalhes
+                  {/* E-commerce conversion footer with dynamic pricing & persuasive CTA */}
+                  <div className="flex items-center justify-between mt-1.5 border-t border-white/10 pt-2">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-zinc-400 font-sans uppercase font-bold leading-none">Preço Único</span>
+                      <span className="text-sm sm:text-base font-mono font-black text-green-400 mt-0.5 whitespace-nowrap">
+                        R$ {Number(product.price).toFixed(2).replace('.', ',')}
+                      </span>
+                    </div>
+                    <span className="text-[11px] sm:text-xs text-white bg-wine-red group-hover/card:bg-red-600 font-sans font-bold px-3 py-1.5 rounded-xl transition-colors flex items-center gap-1 shadow-md">
+                      Personalizar 💖
                     </span>
                   </div>
                 </div>

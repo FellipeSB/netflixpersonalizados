@@ -232,6 +232,8 @@ export default function App() {
     return localStorage.getItem('catalog_selected_avatar') || 'AM';
   });
 
+  const [activeCategoryFilter, setActiveCategoryFilter] = useState<'all' | 'canecas' | 'spotify' | 'azulejos' | 'cestas'>('all');
+
   const handleAvatarSelect = (avatar: string) => {
     setSelectedAvatar(avatar);
     localStorage.setItem('catalog_selected_avatar', avatar);
@@ -274,6 +276,16 @@ export default function App() {
   // Compile flat product list for auto-carousel highlights
   const allProducts = sections.flatMap(s => s.products || []);
 
+  const filteredSections = activeCategoryFilter === 'all' 
+    ? sections 
+    : sections.filter(sec => {
+        if (activeCategoryFilter === 'canecas') return sec.id === 'canecas-foto' || sec.id === 'caneca-spotify';
+        if (activeCategoryFilter === 'spotify') return sec.id === 'caneca-spotify';
+        if (activeCategoryFilter === 'azulejos') return sec.id === 'azulejos';
+        if (activeCategoryFilter === 'cestas') return sec.id === 'cestas';
+        return true;
+      });
+
   return (
     <div className="min-h-screen bg-netflix-bg text-white relative flex flex-col font-sans select-none">
       {/* 🎵 Netflix Brand Intro with physical Synthesized "Tudum" */}
@@ -293,8 +305,49 @@ export default function App() {
 
       {/* 📂 Netflix Category Carousels */}
       <main id="catalogo" className="bg-netflix-bg relative z-10 pb-8 scroll-mt-6">
+        
+        {/* Netflix Category Filter Pills Bar */}
+        <div className="px-4 md:px-16 py-6 max-w-7xl mx-auto flex flex-col gap-1 select-none border-b border-white/5">
+          <p className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#FF2D55] mb-1 animate-pulse">🎯 Explorar Coleção dos Namorados</p>
+          <div className="flex gap-2.5 overflow-x-auto no-scrollbar py-2 shrink-0 scroll-smooth">
+            {[
+              { id: 'all', label: '🎬 Todos os Presentes', count: allProducts.length },
+              { id: 'canecas', label: '☕ Canecas Modernas', count: (sections.find(s => s.id === 'canecas-foto')?.products?.length || 0) + (sections.find(s => s.id === 'caneca-spotify')?.products?.length || 0) },
+              { id: 'spotify', label: '🎵 Especiais Spotify/Data', count: sections.find(s => s.id === 'caneca-spotify')?.products?.length || 0 },
+              { id: 'azulejos', label: '🖼️ Azulejos com Foto', count: sections.find(s => s.id === 'azulejos')?.products?.length || 0 },
+              { id: 'cestas', label: '💝 Cestas Românticas', count: sections.find(s => s.id === 'cestas')?.products?.length || 0 }
+            ].map(item => (
+              <button
+                key={item.id}
+                onClick={() => {
+                  setActiveCategoryFilter(item.id as any);
+                  // Auto-snap scroll focus slightly down if clicked from a tall device
+                  const el = document.getElementById('category-filter-pills-deck');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                  }
+                }}
+                className={`px-4.5 py-3 rounded-2xl text-xs sm:text-xs font-sans font-black uppercase tracking-wider whitespace-nowrap transition-all duration-300 transform active:scale-95 cursor-pointer flex items-center gap-2 border ${
+                  activeCategoryFilter === item.id
+                    ? 'bg-wine-red text-white border-wine-red shadow-[0_4px_15px_rgba(158,27,50,0.5)] md:scale-105'
+                    : 'bg-zinc-900/60 hover:bg-zinc-900 text-zinc-400 hover:text-white border-white/5 hover:border-white/10'
+                }`}
+              >
+                <span>{item.label}</span>
+                {item.count > 0 && (
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-lg font-mono font-bold ${activeCategoryFilter === item.id ? 'bg-white/20 text-white' : 'bg-white/5 text-zinc-500'}`}>
+                    {item.count}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+          {/* Scroll Target anchor */}
+          <div id="category-filter-pills-deck" className="h-px bg-transparent"></div>
+        </div>
+
         {/* Dynamic Auto-rotating Featured Showcase */}
-        {allProducts.length > 0 && (
+        {allProducts.length > 0 && activeCategoryFilter === 'all' && (
           <FeaturedCarousel 
             products={allProducts} 
             onProductClick={(prod) => setSelectedProduct(prod)} 
@@ -302,7 +355,7 @@ export default function App() {
         )}
 
         <div className="py-2">
-          {sections.map((section) => (
+          {filteredSections.map((section) => (
             section.products && section.products.length > 0 && (
               <ProductRow
                 key={section.id}
